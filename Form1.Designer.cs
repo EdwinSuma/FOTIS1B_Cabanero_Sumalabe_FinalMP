@@ -70,9 +70,9 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(40, 144);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(42, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "label1";
+            this.label1.Text = "hi gio!~";
             // 
             // Form1
             // 
