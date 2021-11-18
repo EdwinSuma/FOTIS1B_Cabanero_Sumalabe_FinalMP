@@ -48,34 +48,40 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             // 
             // punchbutton
             // 
-            this.punchbutton.Location = new System.Drawing.Point(51, 415);
+            this.punchbutton.BackgroundImage = global::FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties.Resources.punchbutton;
+            this.punchbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.punchbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.punchbutton.Location = new System.Drawing.Point(119, 404);
             this.punchbutton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.punchbutton.Name = "punchbutton";
-            this.punchbutton.Size = new System.Drawing.Size(62, 27);
+            this.punchbutton.Size = new System.Drawing.Size(110, 38);
             this.punchbutton.TabIndex = 3;
-            this.punchbutton.Text = "Punch";
             this.punchbutton.UseVisualStyleBackColor = true;
             this.punchbutton.Click += new System.EventHandler(this.punchbutton_Click);
             // 
             // counterbutton
             // 
-            this.counterbutton.Location = new System.Drawing.Point(299, 415);
+            this.counterbutton.BackgroundImage = global::FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties.Resources.counterbutton;
+            this.counterbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.counterbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.counterbutton.Location = new System.Drawing.Point(351, 404);
             this.counterbutton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.counterbutton.Name = "counterbutton";
-            this.counterbutton.Size = new System.Drawing.Size(62, 27);
+            this.counterbutton.Size = new System.Drawing.Size(120, 38);
             this.counterbutton.TabIndex = 4;
-            this.counterbutton.Text = "Counter";
             this.counterbutton.UseVisualStyleBackColor = true;
             this.counterbutton.Click += new System.EventHandler(this.counterbutton_Click);
             // 
             // blockbutton
             // 
-            this.blockbutton.Location = new System.Drawing.Point(566, 415);
+            this.blockbutton.BackgroundImage = global::FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties.Resources.blockbutton;
+            this.blockbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.blockbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.blockbutton.Location = new System.Drawing.Point(600, 404);
             this.blockbutton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.blockbutton.Name = "blockbutton";
-            this.blockbutton.Size = new System.Drawing.Size(62, 27);
+            this.blockbutton.Size = new System.Drawing.Size(115, 38);
             this.blockbutton.TabIndex = 5;
-            this.blockbutton.Text = "Block";
             this.blockbutton.UseVisualStyleBackColor = true;
             this.blockbutton.Click += new System.EventHandler(this.blockbutton_Click);
             // 
@@ -96,12 +102,14 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             // 
             // quitgamebutton
             // 
-            this.quitgamebutton.Location = new System.Drawing.Point(10, 460);
+            this.quitgamebutton.BackgroundImage = global::FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties.Resources.returntomenubutton;
+            this.quitgamebutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.quitgamebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.quitgamebutton.Location = new System.Drawing.Point(11, 448);
             this.quitgamebutton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.quitgamebutton.Name = "quitgamebutton";
-            this.quitgamebutton.Size = new System.Drawing.Size(62, 27);
+            this.quitgamebutton.Size = new System.Drawing.Size(111, 33);
             this.quitgamebutton.TabIndex = 7;
-            this.quitgamebutton.Text = "Quit Game";
             this.quitgamebutton.UseVisualStyleBackColor = true;
             // 
             // timer1
@@ -112,7 +120,7 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             // timer
             // 
             this.timer.AutoSize = true;
-            this.timer.Location = new System.Drawing.Point(754, 277);
+            this.timer.Location = new System.Drawing.Point(682, 22);
             this.timer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.timer.Name = "timer";
             this.timer.Size = new System.Drawing.Size(33, 15);
@@ -153,6 +161,8 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             // 
             // progressBar1
             // 
+            this.progressBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.progressBar1.ForeColor = System.Drawing.Color.MediumAquamarine;
             this.progressBar1.Location = new System.Drawing.Point(90, 344);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(215, 23);
@@ -169,7 +179,7 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties.Resources.GameScreennnn;
+            this.BackgroundImage = global::FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties.Resources.GameScreennnnn;
             this.ClientSize = new System.Drawing.Size(813, 506);
             this.Controls.Add(this.progressBar2);
             this.Controls.Add(this.progressBar1);

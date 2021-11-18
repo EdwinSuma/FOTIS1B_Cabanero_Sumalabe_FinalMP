@@ -73,6 +73,16 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap blockbutton {
+            get {
+                object obj = ResourceManager.GetObject("blockbutton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Counter {
             get {
                 object obj = ResourceManager.GetObject("Counter", resourceCulture);
@@ -83,9 +93,29 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap counterbutton {
+            get {
+                object obj = ResourceManager.GetObject("counterbutton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap EndTurnButton {
             get {
                 object obj = ResourceManager.GetObject("EndTurnButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EndTurnButton1 {
+            get {
+                object obj = ResourceManager.GetObject("EndTurnButton1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,6 +183,16 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GameScreennnnn {
+            get {
+                object obj = ResourceManager.GetObject("GameScreennnnn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mechanicsbutton {
             get {
                 object obj = ResourceManager.GetObject("mechanicsbutton", resourceCulture);
@@ -183,9 +223,29 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap punchbutton {
+            get {
+                object obj = ResourceManager.GetObject("punchbutton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Ready {
             get {
                 object obj = ResourceManager.GetObject("Ready", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap returntomenubutton {
+            get {
+                object obj = ResourceManager.GetObject("returntomenubutton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -188,5 +188,20 @@
   <ItemGroup>
     <None Include="images\EndTurnButton.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="images\blockbutton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\counterbutton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\punchbutton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\returntomenubutton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\GameScreennnnn.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
