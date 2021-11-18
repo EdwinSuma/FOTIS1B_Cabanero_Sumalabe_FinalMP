@@ -213,6 +213,16 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MechanicsScreen {
+            get {
+                object obj = ResourceManager.GetObject("MechanicsScreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Punch {
             get {
                 object obj = ResourceManager.GetObject("Punch", resourceCulture);
@@ -246,6 +256,16 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties {
         internal static System.Drawing.Bitmap returntomenubutton {
             get {
                 object obj = ResourceManager.GetObject("returntomenubutton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap returntomenubutton2 {
+            get {
+                object obj = ResourceManager.GetObject("returntomenubutton2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

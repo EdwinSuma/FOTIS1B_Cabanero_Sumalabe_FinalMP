@@ -111,6 +111,7 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             this.quitgamebutton.Size = new System.Drawing.Size(111, 33);
             this.quitgamebutton.TabIndex = 7;
             this.quitgamebutton.UseVisualStyleBackColor = true;
+            this.quitgamebutton.Click += new System.EventHandler(this.quitgamebutton_Click);
             // 
             // timer1
             // 

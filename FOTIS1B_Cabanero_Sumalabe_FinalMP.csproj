@@ -203,5 +203,11 @@
   <ItemGroup>
     <None Include="images\GameScreennnnn.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="images\MechanicsScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\returntomenubutton2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

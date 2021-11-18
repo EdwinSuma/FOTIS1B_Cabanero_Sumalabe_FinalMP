@@ -23,5 +23,15 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             this.Parent = null;
             e.Cancel = true;
         }
+
+        private void returntoMenubutton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void helpScreen_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
