@@ -173,5 +173,20 @@
   <ItemGroup>
     <None Include="images\exitgamebutton.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="images\GameScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\GameScreenn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\GameScreennn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\GameScreennnn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\EndTurnButton.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

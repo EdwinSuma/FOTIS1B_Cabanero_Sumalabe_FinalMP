@@ -121,31 +121,46 @@
   <data name="mechanicsbutton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\mechanicsbutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mechanicsbuttonn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\mechanicsbuttonn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="GameScreenn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\GameScreenn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Ready" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\Ready.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Counter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\Counter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Block" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\Block.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Enemy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\Enemy.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Punch" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\Punch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="GameScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\GameScreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="startbutton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\startbutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="TitleScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\TitleScreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Punch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\Punch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="exitgamebutton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\exitgamebutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Block" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\Block.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Counter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\Counter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TitleScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\TitleScreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GameScreennn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\GameScreennn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mechanicsbuttonn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\mechanicsbuttonn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GameScreennnn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\GameScreennnn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ready" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\Ready.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Enemy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\Enemy.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EndTurnButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\EndTurnButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
