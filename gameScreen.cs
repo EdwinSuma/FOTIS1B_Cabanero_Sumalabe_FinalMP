@@ -26,10 +26,9 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
         {
             public int HP;
             public int HPMax;
-            public int Stamina;
-            public int StaminaMax;
-
-
+            public int PunchDamage;
+            public int CounterDamage;
+            public int BlockMitigation;
         }
         public gameScreen()
         {
@@ -88,13 +87,18 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
 
                  void checkGame()
                 {
-                    int playerHP;
                     Boxer Player = new Boxer();
                     Boxer Enemy = new Boxer();
                     Player.HPMax = 1000;
                     Player.HP = 1000;
                     Enemy.HPMax = 1000;                                                                                    
                     Enemy.HP = 1000;
+                    Player.PunchDamage = 83;
+                    Enemy.PunchDamage = 83;
+                    Player.CounterDamage = 166;
+                    Enemy.CounterDamage = 166;
+                    Player.BlockMitigation = 60;
+                    Enemy.BlockMitigation = 60;
 
 
                     if (PlayerChoice == "punch" && command == "counter")
@@ -145,11 +149,21 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                     }
                     else if (PlayerChoice == "counter" && command == "counter")
                     {
-                        MessageBox.Show("Randomize who wins");
-                        playerWins++;
-                        AIWins++;
-                        rounds--;
-                        nextRound();
+                        randomNumber = rnd.Next(0, 100);
+                        Console.WriteLine(randomNumber);
+                        if (randomNumber >= 50)
+                        {
+                            MessageBox.Show("Player Wins");
+                            playerWins++;
+                            rounds--;
+                        }
+                        else if (randomNumber < 50)
+                        {
+                            MessageBox.Show("AI Wins");
+                            AIWins++;
+                            rounds--;
+                            nextRound();
+                        }
                     }
                     else if (PlayerChoice == "block" && command == "punch")
                     {
