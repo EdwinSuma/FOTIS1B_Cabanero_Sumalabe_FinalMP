@@ -22,6 +22,16 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
         int playerWins = 0;
         int AIWins = 0;
 
+
+
+        private int GetHP(int HP)
+        {
+            int playerHP = HP;
+            return playerHP;
+        }
+
+
+
         class Boxer
         {
             public int HP { get;set;}
@@ -29,16 +39,21 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             public int PunchDamage{ get;set;}
             public int CounterDamage{ get;set;}
             public int BlockMitigation{ get;set;}
+            public int CounterBlock { get; set; }
 
             public Boxer()
             {
-                this.HP = 1000;
-                this.HPMax = 1000;
+                this.HP = 10000;
+                this.HPMax = 10000;
                 this.PunchDamage = 83;
                 this.CounterDamage = 166;
                 this.BlockMitigation = 60;
+                this.CounterBlock = 60;
+
+                
             }
-                public void Punch(Boxer target)
+            
+            public void Punch(Boxer target)
                  { 
                     target.HP -= this.PunchDamage;
                  }
@@ -50,6 +65,12 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                  {
                     target.HP -= this.CounterDamage;
                  }
+                public void CounterBlck(Boxer target)
+                 {
+                    target.HP -= this.CounterBlock;
+
+                 }
+
         }
         public gameScreen()
         {
@@ -97,14 +118,11 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                     default:
                         break;
                 }
-                if (rounds > 1)
+                if (rounds > -1)
                 {
                     checkGame();
                 }
-                else
-                {
-                    decisionEngine();
-                }
+               
 
                  void checkGame()
                 {
@@ -115,6 +133,7 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                         MessageBox.Show("AI Win");
                         Enemy.Counter(Player);
                         rounds--;
+                        Console.WriteLine(Player.HP);
                         nextRound();
                     }
                     else if (PlayerChoice == "counter" && command == "punch")
@@ -127,16 +146,14 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                     else if (PlayerChoice == "counter" && command == "block")
                     {
                         MessageBox.Show("Mitigated Damage for AI");
-                        Player.Counter(Enemy);
-                        Enemy.Mitigate(Enemy);
+                        Player.CounterBlck(Enemy);
                         rounds--;
                         nextRound();
                     }
                     else if (PlayerChoice == "block" && command == "counter")
                     {
                         MessageBox.Show("Mitigated damage for player");
-                        Enemy.Counter(Player);
-                        Player.Mitigate(Player);
+                        Enemy.CounterBlck(Player);
                         rounds--;
                         nextRound();
                     }
@@ -165,6 +182,7 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                             MessageBox.Show("Player Wins");
                             Player.Counter(Enemy);
                             rounds--;
+                            nextRound();
                         }
                         else if (randomNumber < 50)
                         {
@@ -189,11 +207,20 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                         rounds--;
                         nextRound();
                     }
-                    
+                    else if (rounds == 0 && Player.HP > Enemy.HP)
+                    {
+                        MessageBox.Show("Player Wins!");
+                    }
+                    else if (rounds == 0 && Enemy.HP > Player.HP)
+                    {
+                        MessageBox.Show("AI Wins!");
+                    }
+
+
                 }
-                void decisionEngine ()
+               /* void decisionEngine ()
                 {
-                    if (playerWins > AIWins)
+                    if ( > AIWins)
                     {
                         Winner.Text = playerName.Text + " Wins the game";
                     }
@@ -201,13 +228,14 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                     {
                         Winner.Text = " AI Wins the Game";
                     }    
-                }
+                }*/
                void nextRound()
                 {
                     PlayerChoice = "none";
                     pictureBox1.Image = Properties.Resources.Ready;
                     timer1.Enabled = true;
                     pictureBox2.Image = Properties.Resources.Enemy;
+                 
                 }
             }
         }
