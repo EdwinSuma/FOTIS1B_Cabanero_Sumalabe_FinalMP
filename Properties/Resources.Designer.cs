@@ -93,6 +93,36 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap exitgamebutton {
+            get {
+                object obj = ResourceManager.GetObject("exitgamebutton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mechanicsbutton {
+            get {
+                object obj = ResourceManager.GetObject("mechanicsbutton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mechanicsbuttonn {
+            get {
+                object obj = ResourceManager.GetObject("mechanicsbuttonn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Punch {
             get {
                 object obj = ResourceManager.GetObject("Punch", resourceCulture);
@@ -106,6 +136,26 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties {
         internal static System.Drawing.Bitmap Ready {
             get {
                 object obj = ResourceManager.GetObject("Ready", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap startbutton {
+            get {
+                object obj = ResourceManager.GetObject("startbutton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TitleScreen {
+            get {
+                object obj = ResourceManager.GetObject("TitleScreen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

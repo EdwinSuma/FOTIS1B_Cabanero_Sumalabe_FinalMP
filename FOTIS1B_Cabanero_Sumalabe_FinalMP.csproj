@@ -158,5 +158,20 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="images\TitleScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\startbutton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\mechanicsbutton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\mechanicsbuttonn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\exitgamebutton.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

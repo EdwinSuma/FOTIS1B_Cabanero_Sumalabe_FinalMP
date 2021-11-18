@@ -36,45 +36,57 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             // 
             // startgamebutton
             // 
-            this.startgamebutton.Location = new System.Drawing.Point(140, 100);
+            this.startgamebutton.AutoSize = true;
+            this.startgamebutton.BackgroundImage = global::FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties.Resources.startbutton;
+            this.startgamebutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.startgamebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.startgamebutton.ForeColor = System.Drawing.Color.Maroon;
+            this.startgamebutton.Location = new System.Drawing.Point(108, 174);
             this.startgamebutton.Name = "startgamebutton";
-            this.startgamebutton.Size = new System.Drawing.Size(75, 23);
+            this.startgamebutton.Size = new System.Drawing.Size(185, 58);
             this.startgamebutton.TabIndex = 0;
-            this.startgamebutton.Text = "Start Game";
             this.startgamebutton.UseVisualStyleBackColor = true;
             this.startgamebutton.Click += new System.EventHandler(this.startgamebutton_Click);
             // 
             // mechanicsbutton
             // 
-            this.mechanicsbutton.Location = new System.Drawing.Point(140, 210);
+            this.mechanicsbutton.BackgroundImage = global::FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties.Resources.mechanicsbuttonn;
+            this.mechanicsbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.mechanicsbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mechanicsbutton.ForeColor = System.Drawing.Color.Maroon;
+            this.mechanicsbutton.Location = new System.Drawing.Point(108, 278);
             this.mechanicsbutton.Name = "mechanicsbutton";
-            this.mechanicsbutton.Size = new System.Drawing.Size(75, 23);
+            this.mechanicsbutton.Size = new System.Drawing.Size(185, 61);
             this.mechanicsbutton.TabIndex = 1;
-            this.mechanicsbutton.Text = "Mechanics";
             this.mechanicsbutton.UseVisualStyleBackColor = true;
             this.mechanicsbutton.Click += new System.EventHandler(this.mechanicsShow);
             // 
             // exitgamemainbutton
             // 
-            this.exitgamemainbutton.Location = new System.Drawing.Point(140, 377);
+            this.exitgamemainbutton.BackColor = System.Drawing.Color.Maroon;
+            this.exitgamemainbutton.BackgroundImage = global::FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties.Resources.exitgamebutton;
+            this.exitgamemainbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.exitgamemainbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitgamemainbutton.Location = new System.Drawing.Point(108, 389);
             this.exitgamemainbutton.Name = "exitgamemainbutton";
-            this.exitgamemainbutton.Size = new System.Drawing.Size(75, 23);
+            this.exitgamemainbutton.Size = new System.Drawing.Size(185, 63);
             this.exitgamemainbutton.TabIndex = 2;
-            this.exitgamemainbutton.Text = "Quit Game";
-            this.exitgamemainbutton.UseVisualStyleBackColor = true;
+            this.exitgamemainbutton.UseVisualStyleBackColor = false;
             this.exitgamemainbutton.Click += new System.EventHandler(this.exitgamemainbutton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(378, 456);
+            this.BackgroundImage = global::FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties.Resources.TitleScreen;
+            this.ClientSize = new System.Drawing.Size(398, 456);
             this.Controls.Add(this.exitgamemainbutton);
-            this.Controls.Add(this.mechanicsbutton);
             this.Controls.Add(this.startgamebutton);
+            this.Controls.Add(this.mechanicsbutton);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Title Screen";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
