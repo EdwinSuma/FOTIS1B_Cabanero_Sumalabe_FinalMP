@@ -24,11 +24,32 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
 
         class Boxer
         {
-            public int HP;
-            public int HPMax;
-            public int PunchDamage;
-            public int CounterDamage;
-            public int BlockMitigation;
+            public int HP { get;set;}
+            public int HPMax{ get;set;}
+            public int PunchDamage{ get;set;}
+            public int CounterDamage{ get;set;}
+            public int BlockMitigation{ get;set;}
+
+            public Boxer()
+            {
+                this.HP = 1000;
+                this.HPMax = 1000;
+                this.PunchDamage = 83;
+                this.CounterDamage = 166;
+                this.BlockMitigation = 60;
+            }
+                public void Punch(Boxer target)
+                 { 
+                    target.HP -= this.PunchDamage;
+                 }
+                public void Mitigate(Boxer target)
+                 {
+                    target.HP += this.BlockMitigation;
+                 }
+                public void Counter(Boxer target)
+                 {
+                    target.HP -= this.CounterDamage;
+                 }
         }
         public gameScreen()
         {
@@ -89,61 +110,49 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                 {
                     Boxer Player = new Boxer();
                     Boxer Enemy = new Boxer();
-                    Player.HPMax = 1000;
-                    Player.HP = 1000;
-                    Enemy.HPMax = 1000;                                                                                    
-                    Enemy.HP = 1000;
-                    Player.PunchDamage = 83;
-                    Enemy.PunchDamage = 83;
-                    Player.CounterDamage = 166;
-                    Enemy.CounterDamage = 166;
-                    Player.BlockMitigation = 60;
-                    Enemy.BlockMitigation = 60;
-
-
                     if (PlayerChoice == "punch" && command == "counter")
                     {
                         MessageBox.Show("AI Win");
-                        AIWins++;
+                        Enemy.Counter(Player);
                         rounds--;
                         nextRound();
                     }
                     else if (PlayerChoice == "counter" && command == "punch")
                     {
                         MessageBox.Show("Player Wins");
-                        playerWins++;
+                        Player.Counter(Enemy);
                         rounds--;
                         nextRound();
                     }
                     else if (PlayerChoice == "counter" && command == "block")
                     {
                         MessageBox.Show("Mitigated Damage for AI");
-                        playerWins++;
-                        AIWins++;
+                        Player.Counter(Enemy);
+                        Enemy.Mitigate(Enemy);
                         rounds--;
                         nextRound();
                     }
                     else if (PlayerChoice == "block" && command == "counter")
                     {
                         MessageBox.Show("Mitigated damage for player");
-                        playerWins++;
-                        AIWins++;
+                        Enemy.Counter(Player);
+                        Player.Mitigate(Player);
                         rounds--;
                         nextRound();
                     }
                     else if (PlayerChoice == "punch" && command == "block")
                     {
                         MessageBox.Show("Mitigated Damage for AI");
-                        playerWins++;
-                        AIWins++;
+                        Player.Punch(Enemy);
+                        Enemy.Mitigate(Enemy);
                         rounds--;
                         nextRound();
                     }
                     else if (PlayerChoice == "punch" && command == "punch")
                     {
                         MessageBox.Show("Equal damage to players");
-                        playerWins++;
-                        AIWins++;
+                        Player.Punch(Enemy);
+                        Enemy.Punch(Player);
                         rounds--;
                         nextRound();
                     }
@@ -154,13 +163,13 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                         if (randomNumber >= 50)
                         {
                             MessageBox.Show("Player Wins");
-                            playerWins++;
+                            Player.Counter(Enemy);
                             rounds--;
                         }
                         else if (randomNumber < 50)
                         {
                             MessageBox.Show("AI Wins");
-                            AIWins++;
+                            Enemy.Counter(Player);
                             rounds--;
                             nextRound();
                         }
@@ -168,26 +177,29 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                     else if (PlayerChoice == "block" && command == "punch")
                     {
                         MessageBox.Show("Mitigated damage to player");
-                        AIWins++;
+                        Enemy.Punch(Player);
+                        Player.Mitigate(Player);
                         rounds--;
                         nextRound();
                     }
                     else if (PlayerChoice == "block" && command == "block")
                     {
                         MessageBox.Show("No Damage for both players");
+
                         rounds--;
                         nextRound();
                     }
+                    
                 }
                 void decisionEngine ()
                 {
                     if (playerWins > AIWins)
                     {
-                        Winner.Text = playerName.Text + "Wins the game";
+                        Winner.Text = playerName.Text + " Wins the game";
                     }
                     else
                     {
-                        Winner.Text = "AI Wins the Game";
+                        Winner.Text = " AI Wins the Game";
                     }    
                 }
                void nextRound()
