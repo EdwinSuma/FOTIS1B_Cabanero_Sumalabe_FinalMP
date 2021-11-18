@@ -22,16 +22,7 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
         int playerWins = 0;
         int AIWins = 0;
 
-
-
-        private int GetHP(int HP)
-        {
-            int playerHP = HP;
-            return playerHP;
-        }
-
-
-
+ 
         class Boxer
         {
             public int HP { get;set;}
@@ -43,8 +34,8 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
 
             public Boxer()
             {
-                this.HP = 10000;
-                this.HPMax = 10000;
+                this.HP = 1000;
+                this.HPMax = 1500;
                 this.PunchDamage = 83;
                 this.CounterDamage = 166;
                 this.BlockMitigation = 60;
@@ -132,6 +123,7 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                     {
                         MessageBox.Show("AI Win");
                         Enemy.Counter(Player);
+                        Console.WriteLine(Player.HP);
                         rounds--;
                         Console.WriteLine(Player.HP);
                         nextRound();
@@ -222,11 +214,11 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                 {
                     if ( > AIWins)
                     {
-                        Winner.Text = playerName.Text + " Wins the game";
+                        //Winner.Text = playerName.Text + " Wins the game";
                     }
                     else
                     {
-                        Winner.Text = " AI Wins the Game";
+                       // Winner.Text = " AI Wins the Game";
                     }    
                 }*/
                void nextRound()
@@ -261,6 +253,11 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
         private void endturnbutton_Click(object sender, EventArgs e)
         {
             timePerRound = 0;
+        }
+
+        private void quitgamebutton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

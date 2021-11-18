@@ -29,20 +29,38 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
         /// </summary>
         private void InitializeComponent()
         {
+            this.returntoMenubutton = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // returntoMenubutton
+            // 
+            this.returntoMenubutton.BackgroundImage = global::FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties.Resources.returntomenubutton2;
+            this.returntoMenubutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.returntoMenubutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.returntoMenubutton.Location = new System.Drawing.Point(12, 449);
+            this.returntoMenubutton.Name = "returntoMenubutton";
+            this.returntoMenubutton.Size = new System.Drawing.Size(101, 27);
+            this.returntoMenubutton.TabIndex = 0;
+            this.returntoMenubutton.UseVisualStyleBackColor = true;
+            this.returntoMenubutton.Click += new System.EventHandler(this.returntoMenubutton_Click);
             // 
             // helpScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = global::FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties.Resources.MechanicsScreen;
+            this.ClientSize = new System.Drawing.Size(828, 506);
+            this.Controls.Add(this.returntoMenubutton);
             this.Name = "helpScreen";
             this.Text = "Mechanics Screen";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.gameScreen_FormClosing);
+            this.Load += new System.EventHandler(this.helpScreen_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button returntoMenubutton;
     }
 }
