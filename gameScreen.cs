@@ -20,6 +20,9 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
         Random rnd = new Random();
         string PlayerChoice;
 
+        Boxer Player = new Boxer();
+        Boxer Enemy = new Boxer();
+
         class Boxer
         {
             int hp;
@@ -30,9 +33,6 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             public int CounterDamage { get; set; }
             public int BlockMitigation { get; set; }
             public int CounterBlock { get; set; }
-
-
-
 
 
             public int Punch(Boxer target)
@@ -82,14 +82,12 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
         private void gameScreen_Load(object sender, EventArgs e)
         {
             PlayerChoice = "none";
-            Boxer Player = new Boxer();
-            Boxer Enemy = new Boxer();
+            //Boxer Player = new Boxer();
+            //Boxer Enemy = new Boxer();
             gameRun(Player, Enemy);
         }
         private void gameRun(Boxer Player, Boxer Enemy)
         {
-
-         
             
                 randomNumber = rnd.Next(0, 5);
                 command = AIChoice[randomNumber];
@@ -111,6 +109,7 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                     default:
                         break;
                 }
+
                 if (rounds > 0)
                 {
                     if (PlayerChoice == "punch" && command == "counter")
@@ -234,8 +233,8 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                     {
                         Winner.Text = " AI Wins the Game";
                     }
-                
-            }
+                }
+            
 
             void nextRound()
             {
@@ -406,7 +405,10 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             }
         }
             */
-    }
+            
+            rounds--;
+            gameRun(Player, Enemy);
+        }
 
        
 
