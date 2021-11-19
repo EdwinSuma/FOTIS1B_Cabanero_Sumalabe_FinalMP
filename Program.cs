@@ -17,6 +17,7 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            Application.Run(new resultScreen());
         }
     }
 }
