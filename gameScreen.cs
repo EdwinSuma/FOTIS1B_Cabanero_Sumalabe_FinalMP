@@ -14,7 +14,7 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
     {
         public static string gameResult;
 
-        public int rounds = 2;
+        public int rounds = 12;
         public int timePerRound = 21;
         string[] AIChoice = { "punch", "counter", "block", "punch", "block", "counter" };
         public int randomNumber;
