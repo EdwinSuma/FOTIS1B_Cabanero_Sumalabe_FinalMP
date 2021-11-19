@@ -36,14 +36,13 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             this.endturnbutton = new System.Windows.Forms.Button();
             this.quitgamebutton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timer = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.playerName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.timeLbl = new System.Windows.Forms.Label();
             this.Winner = new System.Windows.Forms.TextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -119,16 +118,6 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             // 
             this.timer1.Interval = 1000;
             // 
-            // timer
-            // 
-            this.timer.AutoSize = true;
-            this.timer.Location = new System.Drawing.Point(682, 22);
-            this.timer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.timer.Name = "timer";
-            this.timer.Size = new System.Drawing.Size(33, 15);
-            this.timer.TabIndex = 8;
-            this.timer.Text = "Timer";
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties.Resources.Enemy;
@@ -151,48 +140,50 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
-            // playerName
-            // 
-            this.playerName.AutoSize = true;
-            this.playerName.Location = new System.Drawing.Point(346, 305);
-            this.playerName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.playerName.Name = "playerName";
-            this.playerName.Size = new System.Drawing.Size(67, 15);
-            this.playerName.TabIndex = 12;
-            this.playerName.Text = "Player Name:";
-            // 
             // label1
             // 
             this.label1.Location = new System.Drawing.Point(96, 345);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 20);
+            this.label1.Size = new System.Drawing.Size(73, 20);
             this.label1.TabIndex = 13;
             // 
             // label2
             // 
             this.label2.Location = new System.Drawing.Point(446, 27);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 20);
+            this.label2.Size = new System.Drawing.Size(69, 20);
             this.label2.TabIndex = 14;
-            // 
-            // timeLbl
-            // 
-            this.timeLbl.AutoSize = true;
-            this.timeLbl.Location = new System.Drawing.Point(715, 22);
-            this.timeLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.timeLbl.Name = "timeLbl";
-            this.timeLbl.Size = new System.Drawing.Size(19, 15);
-            this.timeLbl.TabIndex = 15;
-            this.timeLbl.Text = "20";
-            this.timeLbl.Visible = false;
             // 
             // Winner
             // 
             this.Winner.Location = new System.Drawing.Point(351, 89);
             this.Winner.Name = "Winner";
-            this.Winner.Size = new System.Drawing.Size(100, 21);
+            this.Winner.Size = new System.Drawing.Size(210, 21);
             this.Winner.TabIndex = 16;
+            this.Winner.Text = "Display Winner";
+            this.Winner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Winner.Visible = false;
             this.Winner.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BackColor = System.Drawing.Color.Black;
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Location = new System.Drawing.Point(308, 241);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(129, 96);
+            this.richTextBox1.TabIndex = 17;
+            this.richTextBox1.Text = "";
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.BackColor = System.Drawing.Color.Black;
+            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox2.Location = new System.Drawing.Point(616, 12);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(46, 45);
+            this.richTextBox2.TabIndex = 18;
+            this.richTextBox2.Text = "";
             // 
             // gameScreen
             // 
@@ -200,13 +191,12 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties.Resources.GameScreennnnn;
             this.ClientSize = new System.Drawing.Size(813, 506);
+            this.Controls.Add(this.richTextBox2);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.Winner);
-            this.Controls.Add(this.timeLbl);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.playerName);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.timer);
             this.Controls.Add(this.quitgamebutton);
             this.Controls.Add(this.endturnbutton);
             this.Controls.Add(this.blockbutton);
@@ -233,13 +223,12 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
         private System.Windows.Forms.Button endturnbutton;
         private System.Windows.Forms.Button quitgamebutton;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label timer;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label playerName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label timeLbl;
         private System.Windows.Forms.TextBox Winner;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox richTextBox2;
     }
 }
