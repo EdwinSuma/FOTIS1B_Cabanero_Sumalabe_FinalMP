@@ -14,7 +14,7 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
     {
         public static string gameResult;
 
-        public int rounds = 12;
+        public int rounds = 2;
         public int timePerRound = 21;
         string[] AIChoice = { "punch", "counter", "block", "punch", "block", "counter" };
         public int randomNumber;
@@ -83,6 +83,7 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
         private void gameScreen_Load(object sender, EventArgs e)
         {
             PlayerChoice = "none";
+            rounds--;
             gameRun(Player, Enemy);
         }
         private void gameRun(Boxer Player, Boxer Enemy)
@@ -214,8 +215,9 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             {
                 if (Player.HP > Enemy.HP) //win
                 {                   
-                    gameResult = "Player Wins the game";
-
+                    pictureBox1.Image = Properties.Resources.ResultsWin;
+                    pictureBox1.Tag = "win";
+                    gameResult = "win";
                     Console.WriteLine(gameResult);
 
                     this.Hide();
@@ -224,8 +226,11 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                 }
                 else if (Player.HP == Enemy.HP)
                 {
-                    gameResult = "Draw";
                     pictureBox1.Image = Properties.Resources.ResultsDraw;
+                    pictureBox1.Tag = "draw";
+                    gameResult = "draw";
+                    Console.WriteLine(gameResult);
+
                     this.Hide();
                     resultScreen result = new resultScreen();
                     result.Show();
@@ -234,13 +239,15 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                 else //lose
                 {
                     pictureBox1.Image = Properties.Resources.ResultsLose;
-                    gameResult = "AI Wins the Game";
+                    pictureBox1.Tag = "lose";
+                    gameResult = "lose";
                     Console.WriteLine(gameResult);
-                    
+
                     this.Hide();
                     resultScreen result = new resultScreen();
                     result.Show(); 
                 }
+                
             }
 
 
@@ -272,7 +279,6 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
         }
         private void endturnbutton_Click(object sender, EventArgs e)
         {
-            rounds--;
             gameRun(Player, Enemy);
         }
 
