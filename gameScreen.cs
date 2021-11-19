@@ -89,8 +89,8 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
         private void gameRun(Boxer Player, Boxer Enemy)
         {
 
-            while (rounds > 0 || Enemy.HP > 0 || Player.HP > 0)
-            {
+         
+            
                 randomNumber = rnd.Next(0, 5);
                 command = AIChoice[randomNumber];
 
@@ -234,7 +234,7 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                     {
                         Winner.Text = " AI Wins the Game";
                     }
-                }
+                
             }
 
             void nextRound()
