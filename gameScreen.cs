@@ -24,49 +24,49 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
         {
             int hp;
             int punch;
-            
-            public int HP { get { return hp; }  set { hp = value; } }
+
+            public int HP { get { return hp; } set { hp = value; } }
             public int PunchDamage { get { return punch; } set { punch = value; } }
-            public int CounterDamage{ get;set;}
-            public int BlockMitigation{ get;set;}
+            public int CounterDamage { get; set; }
+            public int BlockMitigation { get; set; }
             public int CounterBlock { get; set; }
 
 
 
 
-            
+
             public int Punch(Boxer target)
-                 { 
-                    target.HP -= PunchDamage;
-                return hp;
-                 }
-                public int Mitigate(Boxer target)
-                 {
-                    target.HP += this.BlockMitigation;
-                return hp;
-                 }
-                public int Counter(Boxer target)
-                 {
-                    target.HP -= this.CounterDamage;
+            {
+                target.HP -= PunchDamage;
                 return hp;
             }
-                public int CounterBlck(Boxer target)
-                 {
-                    target.HP -= this.CounterBlock;
+            public int Mitigate(Boxer target)
+            {
+                target.HP += this.BlockMitigation;
+                return hp;
+            }
+            public int Counter(Boxer target)
+            {
+                target.HP -= this.CounterDamage;
+                return hp;
+            }
+            public int CounterBlck(Boxer target)
+            {
+                target.HP -= this.CounterBlock;
                 return hp;
 
             }
             public Boxer()
             {
-                
+                this.HP = 1000;
                 this.PunchDamage = 83;
                 this.CounterDamage = 166;
                 this.BlockMitigation = 60;
                 this.CounterBlock = 60;
 
-                
+
             }
-         }
+        }
         public gameScreen()
         {
             InitializeComponent();
@@ -81,32 +81,16 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
 
         private void gameScreen_Load(object sender, EventArgs e)
         {
-            timer1.Enabled = true;
             PlayerChoice = "none";
+            Boxer Player = new Boxer();
+            Boxer Enemy = new Boxer();
+            gameRun(Player, Enemy);
         }
-        bool checker = false;
-        private void endturnbutton_Click(object sender, EventArgs e)
+        private void gameRun(Boxer Player, Boxer Enemy)
         {
-            timePerRound = 0;
-            checker = true;
-        }
 
-        public void timer1_Tick(object sender, EventArgs e)
-        {
-            timePerRound--;
-            timer.Text = "Timer:  " + Convert.ToString(timePerRound);
-
-            //20 -> 0
-
-            /* if(timeLbl == 0 || checker == true)
-            nextRound();
-            
-             */
-
-            if (timePerRound < 1)
+            while (rounds > 0 || Enemy.HP > 0 || Player.HP > 0)
             {
-                timer1.Enabled = false;
-                timePerRound = 21;
                 randomNumber = rnd.Next(0, 5);
                 command = AIChoice[randomNumber];
 
@@ -128,17 +112,7 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                         break;
                 }
                 if (rounds > 0)
-
-
                 {
-                    Boxer Player = new Boxer();
-                    Boxer Enemy = new Boxer();
-
-                    Player.HP = 1000;
-                    Enemy.HP = 1000;
-                    Player.PunchDamage = 83;
-                    Enemy.PunchDamage = 83;
-
                     if (PlayerChoice == "punch" && command == "counter")
                     {
                         Enemy.Counter(Player);
@@ -190,7 +164,7 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
 
                         Player.Punch(Enemy);
                         Enemy.Punch(Player);
-                        MessageBox.Show("Equal damage to players, AI HP: " + Enemy.HP.ToString() + "  Player HP: " + Player.HP.ToString()); 
+                        MessageBox.Show("Equal damage to players, AI HP: " + Enemy.HP.ToString() + "  Player HP: " + Player.HP.ToString());
                         rounds--;
                         nextRound();
                         label1.Text = Player.HP.ToString();
@@ -245,31 +219,33 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                     {
                         MessageBox.Show("AI Wins!");
                     }
-
-
                 }
-               /* void decisionEngine ()
+                else
                 {
-                    if ( > AIWins)
+                    if (Player.HP > Enemy.HP)
                     {
-                        //Winner.Text = playerName.Text + " Wins the game";
+                        Winner.Text = playerName.Text + " Wins the game";
+                    }
+                    else if (Player.HP == Enemy.HP)
+                    {
+                        Winner.Text = " DRAW!";
                     }
                     else
                     {
-                       // Winner.Text = " AI Wins the Game";
-                    }    
-                }*/
-               void nextRound()
-                {
-                    PlayerChoice = "none";
-                    pictureBox1.Image = Properties.Resources.Ready;
-                    timer1.Enabled = true;
-                    pictureBox2.Image = Properties.Resources.Enemy;
-                    checker = false;
+                        Winner.Text = " AI Wins the Game";
+                    }
                 }
             }
-        }
 
+            void nextRound()
+            {
+                PlayerChoice = "none";
+                pictureBox1.Image = Properties.Resources.Ready;
+                timer1.Enabled = true;
+                pictureBox2.Image = Properties.Resources.Enemy;
+
+            }
+        }
         private void punchbutton_Click(object sender, EventArgs e)
         {
             PlayerChoice = "punch";
@@ -287,12 +263,162 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             PlayerChoice = "block";
             pictureBox1.Image = Properties.Resources.Block;
         }
+        private void endturnbutton_Click(object sender, EventArgs e)
+        {/*
+            randomNumber = rnd.Next(0, 5);
+            command = AIChoice[randomNumber];
+            Boxer Player = new Boxer();
+            Boxer Enemy = new Boxer();
 
-        
+            switch (command)
+            {
+                case "punch":
+                    pictureBox2.Image = Properties.Resources.Punch;
+                    break;
 
-        private void quitgamebutton_Click(object sender, EventArgs e)
+                case "counter":
+                    pictureBox2.Image = Properties.Resources.Counter;
+                    break;
+
+                case "block":
+                    pictureBox2.Image = Properties.Resources.Block;
+                    break;
+
+                default:
+                    break;
+            }
+            if (rounds > 0)
+            {
+                   if (PlayerChoice == "punch" && command == "counter")
+                {
+                    Enemy.Counter(Player);
+                    MessageBox.Show("AI Win, Player HP: " + Player.HP.ToString());
+                    rounds--;
+                    nextRound();
+                    label1.Text = Player.HP.ToString();
+                    label2.Text = Enemy.HP.ToString();
+                }
+                   else if (PlayerChoice == "counter" && command == "punch")
+                {
+                    Player.Counter(Enemy);
+                    MessageBox.Show("Player Wins, AI HP: " + Enemy.HP.ToString());
+                    rounds--;
+                    nextRound();
+                    label1.Text = Player.HP.ToString();
+                    label2.Text = Enemy.HP.ToString();
+                }
+                   else if (PlayerChoice == "counter" && command == "block")
+                {
+                    Player.CounterBlck(Enemy);
+                    MessageBox.Show("Mitigated Damage for AI, AI HP: " + Enemy.HP.ToString());
+                    rounds--;
+                    nextRound();
+                    label1.Text = Player.HP.ToString();
+                    label2.Text = Enemy.HP.ToString();
+                }
+                  else if (PlayerChoice == "block" && command == "counter")
+                {
+                    Enemy.CounterBlck(Player);
+                    MessageBox.Show("Mitigated damage for player, Player HP: " + Player.HP.ToString());
+                    rounds--;
+                    nextRound();
+                    label1.Text = Player.HP.ToString();
+                    label2.Text = Enemy.HP.ToString();
+                }
+                  else if (PlayerChoice == "punch" && command == "block")
+                {
+                    Player.Punch(Enemy);
+                    Enemy.Mitigate(Enemy);
+                    MessageBox.Show("Mitigated Damage for AI, AI HP: " + Enemy.HP.ToString());
+                    rounds--;
+                    nextRound();
+                    label1.Text = Player.HP.ToString();
+                    label2.Text = Enemy.HP.ToString();
+                }
+                 else if (PlayerChoice == "punch" && command == "punch")
+                {
+
+                    Player.Punch(Enemy);
+                    Enemy.Punch(Player);
+                    MessageBox.Show("Equal damage to players, AI HP: " + Enemy.HP.ToString() + "  Player HP: " + Player.HP.ToString());
+                    rounds--;
+                    nextRound();
+                    label1.Text = Player.HP.ToString();
+                    label2.Text = Enemy.HP.ToString();
+                }
+                 else if (PlayerChoice == "counter" && command == "counter")
+                {
+                    randomNumber = rnd.Next(0, 100);
+                    Console.WriteLine(randomNumber);
+                    if (randomNumber >= 50)
+                    {
+                        MessageBox.Show("Player Wins");
+                        Player.Counter(Enemy);
+                        rounds--;
+                        nextRound();
+                        label1.Text = Player.HP.ToString();
+                        label2.Text = Enemy.HP.ToString();
+                    }
+                    else if (randomNumber < 50)
+                    {
+                        MessageBox.Show("AI Wins");
+                        Enemy.Counter(Player);
+                        rounds--;
+                        nextRound();
+                        label1.Text = Player.HP.ToString();
+                        label2.Text = Enemy.HP.ToString();
+                    }
+                }
+                  else if (PlayerChoice == "block" && command == "punch")
+                {
+                    MessageBox.Show("Mitigated damage to player");
+                    Enemy.Punch(Player);
+                    Player.Mitigate(Player);
+                    rounds--;
+                    nextRound();
+                    label1.Text = Player.HP.ToString();
+                    label2.Text = Enemy.HP.ToString();
+                }
+                   else if (PlayerChoice == "block" && command == "block")
+                {
+                    MessageBox.Show("No Damage for both players");
+                    rounds--;
+                    nextRound();
+                    label1.Text = Player.HP.ToString();
+                    label2.Text = Enemy.HP.ToString();
+                }
+            /* void decisionEngine ()
+             {
+                 if ( > AIWins)
+                 {
+                     //Winner.Text = playerName.Text + " Wins the game";
+                 }
+                 else
+                 {
+                    // Winner.Text = " AI Wins the Game";
+                 }    
+             }
+            void nextRound()
+            {
+                PlayerChoice = "none";
+                pictureBox1.Image = Properties.Resources.Ready;
+                pictureBox2.Image = Properties.Resources.Enemy;
+            }
+        }
+            */
+    }
+
+       
+
+            private void quitgamebutton_Click(object sender, EventArgs e)
+            {
+                this.Close();
+            }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            this.Close();
+
         }
     }
-}
+    }
+

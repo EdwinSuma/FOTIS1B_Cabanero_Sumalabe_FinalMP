@@ -43,6 +43,7 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.timeLbl = new System.Windows.Forms.Label();
+            this.Winner = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -117,7 +118,6 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             // timer1
             // 
             this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // timer
             // 
@@ -186,12 +186,21 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             this.timeLbl.Text = "20";
             this.timeLbl.Visible = false;
             // 
+            // Winner
+            // 
+            this.Winner.Location = new System.Drawing.Point(351, 89);
+            this.Winner.Name = "Winner";
+            this.Winner.Size = new System.Drawing.Size(100, 21);
+            this.Winner.TabIndex = 16;
+            this.Winner.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // gameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties.Resources.GameScreennnnn;
             this.ClientSize = new System.Drawing.Size(813, 506);
+            this.Controls.Add(this.Winner);
             this.Controls.Add(this.timeLbl);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -231,5 +240,6 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label timeLbl;
+        private System.Windows.Forms.TextBox Winner;
     }
 }
