@@ -12,7 +12,9 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
 {
     public partial class gameScreen : Form
     {
-        public int rounds = 12;
+        public static string gameResult;
+
+        public int rounds = 2;
         public int timePerRound = 21;
         string[] AIChoice = { "punch", "counter", "block", "punch", "block", "counter" };
         public int randomNumber;
@@ -64,7 +66,6 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                 this.BlockMitigation = 60;
                 this.CounterBlock = 60;
 
-
             }
         }
         public gameScreen()
@@ -82,159 +83,168 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
         private void gameScreen_Load(object sender, EventArgs e)
         {
             PlayerChoice = "none";
-            //Boxer Player = new Boxer();
-            //Boxer Enemy = new Boxer();
+            Winner.Visible = false;
             gameRun(Player, Enemy);
         }
         private void gameRun(Boxer Player, Boxer Enemy)
         {
             
-                randomNumber = rnd.Next(0, 5);
-                command = AIChoice[randomNumber];
+            randomNumber = rnd.Next(0, 5);
+            command = AIChoice[randomNumber];
 
-                switch (command)
+            switch (command)
+            {
+                case "punch":
+                    pictureBox2.Image = Properties.Resources.Punch;
+                    break;
+
+                case "counter":
+                    pictureBox2.Image = Properties.Resources.Counter;
+                    break;
+
+                case "block":
+                    pictureBox2.Image = Properties.Resources.Block;
+                    break;
+
+                default:
+                    break;
+            }
+
+            if (rounds > 0)
+            {
+                if (PlayerChoice == "punch" && command == "counter")
                 {
-                    case "punch":
-                        pictureBox2.Image = Properties.Resources.Punch;
-                        break;
-
-                    case "counter":
-                        pictureBox2.Image = Properties.Resources.Counter;
-                        break;
-
-                    case "block":
-                        pictureBox2.Image = Properties.Resources.Block;
-                        break;
-
-                    default:
-                        break;
+                    Enemy.Counter(Player);
+                    MessageBox.Show("AI Win, Player HP: " + Player.HP.ToString());
+                    rounds--;
+                    nextRound();
+                    label1.Text = Player.HP.ToString();
+                    label2.Text = Enemy.HP.ToString();
                 }
-
-                if (rounds > 0)
+                else if (PlayerChoice == "counter" && command == "punch")
                 {
-                    if (PlayerChoice == "punch" && command == "counter")
+                    Player.Counter(Enemy);
+                    MessageBox.Show("Player Wins, AI HP: " + Enemy.HP.ToString());
+                    rounds--;
+                    nextRound();
+                    label1.Text = Player.HP.ToString();
+                    label2.Text = Enemy.HP.ToString();
+                }
+                else if (PlayerChoice == "counter" && command == "block")
+                {
+                    Player.CounterBlck(Enemy);
+                    MessageBox.Show("Mitigated Damage for AI, AI HP: " + Enemy.HP.ToString());
+                    rounds--;
+                    nextRound();
+                    label1.Text = Player.HP.ToString();
+                    label2.Text = Enemy.HP.ToString();
+                }
+                else if (PlayerChoice == "block" && command == "counter")
+                {
+                    Enemy.CounterBlck(Player);
+                    MessageBox.Show("Mitigated damage for player, Player HP: " + Player.HP.ToString());
+                    rounds--;
+                    nextRound();
+                    label1.Text = Player.HP.ToString();
+                    label2.Text = Enemy.HP.ToString();
+                }
+                else if (PlayerChoice == "punch" && command == "block")
+                {
+                    Player.Punch(Enemy);
+                    Enemy.Mitigate(Enemy);
+                    MessageBox.Show("Mitigated Damage for AI, AI HP: " + Enemy.HP.ToString());
+                    rounds--;
+                    nextRound();
+                    label1.Text = Player.HP.ToString();
+                    label2.Text = Enemy.HP.ToString();
+                }
+                else if (PlayerChoice == "punch" && command == "punch")
+                {
+
+                    Player.Punch(Enemy);
+                    Enemy.Punch(Player);
+                    MessageBox.Show("Equal damage to players, AI HP: " + Enemy.HP.ToString() + "  Player HP: " + Player.HP.ToString());
+                    rounds--;
+                    nextRound();
+                    label1.Text = Player.HP.ToString();
+                    label2.Text = Enemy.HP.ToString();
+                }
+                else if (PlayerChoice == "counter" && command == "counter")
+                {
+                    randomNumber = rnd.Next(0, 100);
+                    Console.WriteLine(randomNumber);
+                    if (randomNumber >= 50)
                     {
-                        Enemy.Counter(Player);
-                        MessageBox.Show("AI Win, Player HP: " + Player.HP.ToString());
-                        rounds--;
-                        nextRound();
-                        label1.Text = Player.HP.ToString();
-                        label2.Text = Enemy.HP.ToString();
-                    }
-                    else if (PlayerChoice == "counter" && command == "punch")
-                    {
+                        MessageBox.Show("Player Wins");
                         Player.Counter(Enemy);
-                        MessageBox.Show("Player Wins, AI HP: " + Enemy.HP.ToString());
                         rounds--;
                         nextRound();
                         label1.Text = Player.HP.ToString();
                         label2.Text = Enemy.HP.ToString();
                     }
-                    else if (PlayerChoice == "counter" && command == "block")
+                    else if (randomNumber < 50)
                     {
-                        Player.CounterBlck(Enemy);
-                        MessageBox.Show("Mitigated Damage for AI, AI HP: " + Enemy.HP.ToString());
+                        MessageBox.Show("AI Wins");
+                        Enemy.Counter(Player);
                         rounds--;
                         nextRound();
                         label1.Text = Player.HP.ToString();
                         label2.Text = Enemy.HP.ToString();
-                    }
-                    else if (PlayerChoice == "block" && command == "counter")
-                    {
-                        Enemy.CounterBlck(Player);
-                        MessageBox.Show("Mitigated damage for player, Player HP: " + Player.HP.ToString());
-                        rounds--;
-                        nextRound();
-                        label1.Text = Player.HP.ToString();
-                        label2.Text = Enemy.HP.ToString();
-                    }
-                    else if (PlayerChoice == "punch" && command == "block")
-                    {
-                        Player.Punch(Enemy);
-                        Enemy.Mitigate(Enemy);
-                        MessageBox.Show("Mitigated Damage for AI, AI HP: " + Enemy.HP.ToString());
-                        rounds--;
-                        nextRound();
-                        label1.Text = Player.HP.ToString();
-                        label2.Text = Enemy.HP.ToString();
-                    }
-                    else if (PlayerChoice == "punch" && command == "punch")
-                    {
-
-                        Player.Punch(Enemy);
-                        Enemy.Punch(Player);
-                        MessageBox.Show("Equal damage to players, AI HP: " + Enemy.HP.ToString() + "  Player HP: " + Player.HP.ToString());
-                        rounds--;
-                        nextRound();
-                        label1.Text = Player.HP.ToString();
-                        label2.Text = Enemy.HP.ToString();
-                    }
-                    else if (PlayerChoice == "counter" && command == "counter")
-                    {
-                        randomNumber = rnd.Next(0, 100);
-                        Console.WriteLine(randomNumber);
-                        if (randomNumber >= 50)
-                        {
-                            MessageBox.Show("Player Wins");
-                            Player.Counter(Enemy);
-                            rounds--;
-                            nextRound();
-                            label1.Text = Player.HP.ToString();
-                            label2.Text = Enemy.HP.ToString();
-                        }
-                        else if (randomNumber < 50)
-                        {
-                            MessageBox.Show("AI Wins");
-                            Enemy.Counter(Player);
-                            rounds--;
-                            nextRound();
-                            label1.Text = Player.HP.ToString();
-                            label2.Text = Enemy.HP.ToString();
-                        }
-                    }
-                    else if (PlayerChoice == "block" && command == "punch")
-                    {
-                        MessageBox.Show("Mitigated damage to player");
-                        Enemy.Punch(Player);
-                        Player.Mitigate(Player);
-                        rounds--;
-                        nextRound();
-                        label1.Text = Player.HP.ToString();
-                        label2.Text = Enemy.HP.ToString();
-                    }
-                    else if (PlayerChoice == "block" && command == "block")
-                    {
-                        MessageBox.Show("No Damage for both players");
-                        rounds--;
-                        nextRound();
-                        label1.Text = Player.HP.ToString();
-                        label2.Text = Enemy.HP.ToString();
-                    }
-                    else if (rounds == 0 && Player.HP > Enemy.HP)
-                    {
-                        MessageBox.Show("Player Wins!");
-                    }
-                    else if (rounds == 0 && Enemy.HP > Player.HP)
-                    {
-                        MessageBox.Show("AI Wins!");
                     }
                 }
-                else
+                else if (PlayerChoice == "block" && command == "punch")
                 {
-                    if (Player.HP > Enemy.HP)
-                    {
-                        Winner.Text = playerName.Text + " Wins the game";
-                    }
-                    else if (Player.HP == Enemy.HP)
-                    {
-                        Winner.Text = " DRAW!";
-                    }
-                    else
-                    {
-                        Winner.Text = " AI Wins the Game";
-                    }
+                    MessageBox.Show("Mitigated damage to player");
+                    Enemy.Punch(Player);
+                    Player.Mitigate(Player);
+                    rounds--;
+                    nextRound();
+                    label1.Text = Player.HP.ToString();
+                    label2.Text = Enemy.HP.ToString();
                 }
-            
+                else if (PlayerChoice == "block" && command == "block")
+                {
+                    MessageBox.Show("No Damage for both players");
+                    rounds--;
+                    nextRound();
+                    label1.Text = Player.HP.ToString();
+                    label2.Text = Enemy.HP.ToString();
+                }
+            }
+            else
+            {
+                if (Player.HP > Enemy.HP) //win
+                {
+                    Winner.Visible = true;
+                    
+                    gameResult = "Player Wins the game";
+
+                    Console.WriteLine(gameResult);
+
+                    this.Hide();
+                    resultScreen result = new resultScreen();
+                    result.Show();
+                }
+                else if (Player.HP == Enemy.HP)
+                {
+                    Winner.Visible = true;
+                    Winner.Text = " DRAW!";
+
+                }
+                else //lose
+                {
+                    
+                    Winner.Text = " AI Wins the Game";
+
+                    gameResult = "AI Wins the Game";
+                    Console.WriteLine(gameResult);
+                    
+                    this.Hide();
+                    resultScreen result = new resultScreen();
+                    result.Show(); 
+                }
+            }
+
 
             void nextRound()
             {
@@ -263,159 +273,15 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             pictureBox1.Image = Properties.Resources.Block;
         }
         private void endturnbutton_Click(object sender, EventArgs e)
-        {/*
-            randomNumber = rnd.Next(0, 5);
-            command = AIChoice[randomNumber];
-            Boxer Player = new Boxer();
-            Boxer Enemy = new Boxer();
-
-            switch (command)
-            {
-                case "punch":
-                    pictureBox2.Image = Properties.Resources.Punch;
-                    break;
-
-                case "counter":
-                    pictureBox2.Image = Properties.Resources.Counter;
-                    break;
-
-                case "block":
-                    pictureBox2.Image = Properties.Resources.Block;
-                    break;
-
-                default:
-                    break;
-            }
-            if (rounds > 0)
-            {
-                   if (PlayerChoice == "punch" && command == "counter")
-                {
-                    Enemy.Counter(Player);
-                    MessageBox.Show("AI Win, Player HP: " + Player.HP.ToString());
-                    rounds--;
-                    nextRound();
-                    label1.Text = Player.HP.ToString();
-                    label2.Text = Enemy.HP.ToString();
-                }
-                   else if (PlayerChoice == "counter" && command == "punch")
-                {
-                    Player.Counter(Enemy);
-                    MessageBox.Show("Player Wins, AI HP: " + Enemy.HP.ToString());
-                    rounds--;
-                    nextRound();
-                    label1.Text = Player.HP.ToString();
-                    label2.Text = Enemy.HP.ToString();
-                }
-                   else if (PlayerChoice == "counter" && command == "block")
-                {
-                    Player.CounterBlck(Enemy);
-                    MessageBox.Show("Mitigated Damage for AI, AI HP: " + Enemy.HP.ToString());
-                    rounds--;
-                    nextRound();
-                    label1.Text = Player.HP.ToString();
-                    label2.Text = Enemy.HP.ToString();
-                }
-                  else if (PlayerChoice == "block" && command == "counter")
-                {
-                    Enemy.CounterBlck(Player);
-                    MessageBox.Show("Mitigated damage for player, Player HP: " + Player.HP.ToString());
-                    rounds--;
-                    nextRound();
-                    label1.Text = Player.HP.ToString();
-                    label2.Text = Enemy.HP.ToString();
-                }
-                  else if (PlayerChoice == "punch" && command == "block")
-                {
-                    Player.Punch(Enemy);
-                    Enemy.Mitigate(Enemy);
-                    MessageBox.Show("Mitigated Damage for AI, AI HP: " + Enemy.HP.ToString());
-                    rounds--;
-                    nextRound();
-                    label1.Text = Player.HP.ToString();
-                    label2.Text = Enemy.HP.ToString();
-                }
-                 else if (PlayerChoice == "punch" && command == "punch")
-                {
-
-                    Player.Punch(Enemy);
-                    Enemy.Punch(Player);
-                    MessageBox.Show("Equal damage to players, AI HP: " + Enemy.HP.ToString() + "  Player HP: " + Player.HP.ToString());
-                    rounds--;
-                    nextRound();
-                    label1.Text = Player.HP.ToString();
-                    label2.Text = Enemy.HP.ToString();
-                }
-                 else if (PlayerChoice == "counter" && command == "counter")
-                {
-                    randomNumber = rnd.Next(0, 100);
-                    Console.WriteLine(randomNumber);
-                    if (randomNumber >= 50)
-                    {
-                        MessageBox.Show("Player Wins");
-                        Player.Counter(Enemy);
-                        rounds--;
-                        nextRound();
-                        label1.Text = Player.HP.ToString();
-                        label2.Text = Enemy.HP.ToString();
-                    }
-                    else if (randomNumber < 50)
-                    {
-                        MessageBox.Show("AI Wins");
-                        Enemy.Counter(Player);
-                        rounds--;
-                        nextRound();
-                        label1.Text = Player.HP.ToString();
-                        label2.Text = Enemy.HP.ToString();
-                    }
-                }
-                  else if (PlayerChoice == "block" && command == "punch")
-                {
-                    MessageBox.Show("Mitigated damage to player");
-                    Enemy.Punch(Player);
-                    Player.Mitigate(Player);
-                    rounds--;
-                    nextRound();
-                    label1.Text = Player.HP.ToString();
-                    label2.Text = Enemy.HP.ToString();
-                }
-                   else if (PlayerChoice == "block" && command == "block")
-                {
-                    MessageBox.Show("No Damage for both players");
-                    rounds--;
-                    nextRound();
-                    label1.Text = Player.HP.ToString();
-                    label2.Text = Enemy.HP.ToString();
-                }
-            /* void decisionEngine ()
-             {
-                 if ( > AIWins)
-                 {
-                     //Winner.Text = playerName.Text + " Wins the game";
-                 }
-                 else
-                 {
-                    // Winner.Text = " AI Wins the Game";
-                 }    
-             }
-            void nextRound()
-            {
-                PlayerChoice = "none";
-                pictureBox1.Image = Properties.Resources.Ready;
-                pictureBox2.Image = Properties.Resources.Enemy;
-            }
-        }
-            */
-            
+        {
             rounds--;
             gameRun(Player, Enemy);
         }
 
-       
-
-            private void quitgamebutton_Click(object sender, EventArgs e)
-            {
-                this.Close();
-            }
+        private void quitgamebutton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
