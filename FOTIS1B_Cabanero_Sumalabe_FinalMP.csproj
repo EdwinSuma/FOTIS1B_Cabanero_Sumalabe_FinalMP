@@ -233,5 +233,8 @@
   <ItemGroup>
     <None Include="images\exitgameresultsbutton.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="images\ResultsDraw.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

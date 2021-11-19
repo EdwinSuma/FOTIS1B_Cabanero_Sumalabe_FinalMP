@@ -40,7 +40,6 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.Winner = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -154,17 +153,6 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             this.label2.Size = new System.Drawing.Size(69, 20);
             this.label2.TabIndex = 14;
             // 
-            // Winner
-            // 
-            this.Winner.Location = new System.Drawing.Point(351, 89);
-            this.Winner.Name = "Winner";
-            this.Winner.Size = new System.Drawing.Size(210, 21);
-            this.Winner.TabIndex = 16;
-            this.Winner.Text = "Display Winner";
-            this.Winner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Winner.Visible = false;
-            this.Winner.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
             // richTextBox1
             // 
             this.richTextBox1.BackColor = System.Drawing.Color.Black;
@@ -193,7 +181,6 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             this.ClientSize = new System.Drawing.Size(813, 506);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.Winner);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
@@ -212,7 +199,6 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -227,7 +213,6 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox Winner;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.RichTextBox richTextBox2;
     }

@@ -283,6 +283,16 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ResultsDraw {
+            get {
+                object obj = ResourceManager.GetObject("ResultsDraw", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ResultsLose {
             get {
                 object obj = ResourceManager.GetObject("ResultsLose", resourceCulture);

@@ -83,7 +83,6 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
         private void gameScreen_Load(object sender, EventArgs e)
         {
             PlayerChoice = "none";
-            Winner.Visible = false;
             gameRun(Player, Enemy);
         }
         private void gameRun(Boxer Player, Boxer Enemy)
@@ -214,9 +213,7 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             else
             {
                 if (Player.HP > Enemy.HP) //win
-                {
-                    Winner.Visible = true;
-                    
+                {                   
                     gameResult = "Player Wins the game";
 
                     Console.WriteLine(gameResult);
@@ -227,15 +224,15 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                 }
                 else if (Player.HP == Enemy.HP)
                 {
-                    pictureBox1.Image = Properties.Resources.ResultsWin;
-                    Winner.Visible = true;
-                    Winner.Text = " DRAW!";
+                    gameResult = "Draw";
+                    pictureBox1.Image = Properties.Resources.ResultsDraw;
+                    this.Hide();
+                    resultScreen result = new resultScreen();
+                    result.Show();
 
                 }
                 else //lose
                 {
-                    
-                    Winner.Text = " AI Wins the Game";
                     pictureBox1.Image = Properties.Resources.ResultsLose;
                     gameResult = "AI Wins the Game";
                     Console.WriteLine(gameResult);
