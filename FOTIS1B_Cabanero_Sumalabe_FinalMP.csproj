@@ -221,5 +221,17 @@
   <ItemGroup>
     <None Include="Resources\balck.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="images\ResultsLose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\ResultsWin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\PlayAgainButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\exitgameresultsbutton.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

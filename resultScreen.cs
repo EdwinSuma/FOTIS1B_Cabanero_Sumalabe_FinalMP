@@ -28,7 +28,16 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
 
         private void resultScreen_Load(object sender, EventArgs e)
         {
-            label1.Text = gameScreen.gameResult;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

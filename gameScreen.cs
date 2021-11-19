@@ -227,6 +227,7 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                 }
                 else if (Player.HP == Enemy.HP)
                 {
+                    pictureBox1.Image = Properties.Resources.ResultsWin;
                     Winner.Visible = true;
                     Winner.Text = " DRAW!";
 
@@ -235,7 +236,7 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                 {
                     
                     Winner.Text = " AI Wins the Game";
-
+                    pictureBox1.Image = Properties.Resources.ResultsLose;
                     gameResult = "AI Wins the Game";
                     Console.WriteLine(gameResult);
                     

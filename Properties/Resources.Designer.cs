@@ -153,6 +153,16 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap exitgameresultsbutton {
+            get {
+                object obj = ResourceManager.GetObject("exitgameresultsbutton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap GameScreen {
             get {
                 object obj = ResourceManager.GetObject("GameScreen", resourceCulture);
@@ -233,6 +243,16 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PlayAgainButton {
+            get {
+                object obj = ResourceManager.GetObject("PlayAgainButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Punch {
             get {
                 object obj = ResourceManager.GetObject("Punch", resourceCulture);
@@ -256,6 +276,26 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties {
         internal static System.Drawing.Bitmap Ready {
             get {
                 object obj = ResourceManager.GetObject("Ready", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ResultsLose {
+            get {
+                object obj = ResourceManager.GetObject("ResultsLose", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ResultsWin {
+            get {
+                object obj = ResourceManager.GetObject("ResultsWin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
