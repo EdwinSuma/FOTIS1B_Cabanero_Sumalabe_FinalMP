@@ -35,5 +35,10 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             this.Close();
             Application.Exit();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -65,9 +65,8 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                 this.CounterBlock = 60;
 
                 
-            } 
-
-        }
+            }
+         }
         public gameScreen()
         {
             InitializeComponent();
@@ -120,6 +119,8 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                         break;
                 }
                 if (rounds > 0)
+
+
                 {
                     Boxer Player = new Boxer();
                     Boxer Enemy = new Boxer();
