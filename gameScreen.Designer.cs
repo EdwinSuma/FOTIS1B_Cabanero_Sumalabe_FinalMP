@@ -42,6 +42,7 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             this.playerName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.timeLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -174,12 +175,24 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             this.label2.Size = new System.Drawing.Size(60, 20);
             this.label2.TabIndex = 14;
             // 
+            // timeLbl
+            // 
+            this.timeLbl.AutoSize = true;
+            this.timeLbl.Location = new System.Drawing.Point(715, 22);
+            this.timeLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.timeLbl.Name = "timeLbl";
+            this.timeLbl.Size = new System.Drawing.Size(19, 15);
+            this.timeLbl.TabIndex = 15;
+            this.timeLbl.Text = "20";
+            this.timeLbl.Visible = false;
+            // 
             // gameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties.Resources.GameScreennnnn;
             this.ClientSize = new System.Drawing.Size(813, 506);
+            this.Controls.Add(this.timeLbl);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.playerName);
@@ -217,5 +230,6 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
         private System.Windows.Forms.Label playerName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label timeLbl;
     }
 }

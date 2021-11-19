@@ -84,16 +84,25 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             timer1.Enabled = true;
             PlayerChoice = "none";
         }
-
+        bool checker = false;
         private void endturnbutton_Click(object sender, EventArgs e)
         {
             timePerRound = 0;
+            checker = true;
         }
 
         public void timer1_Tick(object sender, EventArgs e)
         {
             timePerRound--;
             timer.Text = "Timer:  " + Convert.ToString(timePerRound);
+
+            //20 -> 0
+
+            /* if(timeLbl == 0 || checker == true)
+            nextRound();
+            
+             */
+
             if (timePerRound < 1)
             {
                 timer1.Enabled = false;
@@ -256,7 +265,7 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                     pictureBox1.Image = Properties.Resources.Ready;
                     timer1.Enabled = true;
                     pictureBox2.Image = Properties.Resources.Enemy;
-                 
+                    checker = false;
                 }
             }
         }
