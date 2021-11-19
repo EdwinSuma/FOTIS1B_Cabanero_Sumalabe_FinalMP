@@ -40,8 +40,8 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.playerName = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.progressBar2 = new System.Windows.Forms.ProgressBar();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -160,21 +160,19 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             this.playerName.TabIndex = 12;
             this.playerName.Text = "Player Name:";
             // 
-            // progressBar1
+            // label1
             // 
-            this.progressBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.progressBar1.ForeColor = System.Drawing.Color.MediumAquamarine;
-            this.progressBar1.Location = new System.Drawing.Point(90, 344);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(215, 23);
-            this.progressBar1.TabIndex = 13;
+            this.label1.Location = new System.Drawing.Point(96, 345);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 20);
+            this.label1.TabIndex = 13;
             // 
-            // progressBar2
+            // label2
             // 
-            this.progressBar2.Location = new System.Drawing.Point(324, 59);
-            this.progressBar2.Name = "progressBar2";
-            this.progressBar2.Size = new System.Drawing.Size(237, 23);
-            this.progressBar2.TabIndex = 14;
+            this.label2.Location = new System.Drawing.Point(446, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 20);
+            this.label2.TabIndex = 14;
             // 
             // gameScreen
             // 
@@ -182,8 +180,8 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FOTIS1B_Cabanero_Sumalabe_FinalMP.Properties.Resources.GameScreennnnn;
             this.ClientSize = new System.Drawing.Size(813, 506);
-            this.Controls.Add(this.progressBar2);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.playerName);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.timer);
@@ -217,7 +215,7 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label playerName;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.ProgressBar progressBar2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

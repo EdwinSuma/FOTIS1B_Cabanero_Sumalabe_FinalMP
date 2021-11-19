@@ -19,48 +19,53 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
         string command;
         Random rnd = new Random();
         string PlayerChoice;
-        int playerWins = 0;
-        int AIWins = 0;
 
- 
         class Boxer
         {
-            public int HP { get;set;}
-            public int HPMax{ get;set;}
-            public int PunchDamage{ get;set;}
+            int hp;
+            int punch;
+            
+            public int HP { get { return hp; }  set { hp = value; } }
+            public int PunchDamage { get { return punch; } set { punch = value; } }
             public int CounterDamage{ get;set;}
             public int BlockMitigation{ get;set;}
             public int CounterBlock { get; set; }
 
+
+
+
+            
+            public int Punch(Boxer target)
+                 { 
+                    target.HP -= PunchDamage;
+                return hp;
+                 }
+                public int Mitigate(Boxer target)
+                 {
+                    target.HP += this.BlockMitigation;
+                return hp;
+                 }
+                public int Counter(Boxer target)
+                 {
+                    target.HP -= this.CounterDamage;
+                return hp;
+            }
+                public int CounterBlck(Boxer target)
+                 {
+                    target.HP -= this.CounterBlock;
+                return hp;
+
+            }
             public Boxer()
             {
-                this.HP = 1000;
-                this.HPMax = 1500;
+                
                 this.PunchDamage = 83;
                 this.CounterDamage = 166;
                 this.BlockMitigation = 60;
                 this.CounterBlock = 60;
 
                 
-            }
-            
-            public void Punch(Boxer target)
-                 { 
-                    target.HP -= this.PunchDamage;
-                 }
-                public void Mitigate(Boxer target)
-                 {
-                    target.HP += this.BlockMitigation;
-                 }
-                public void Counter(Boxer target)
-                 {
-                    target.HP -= this.CounterDamage;
-                 }
-                public void CounterBlck(Boxer target)
-                 {
-                    target.HP -= this.CounterBlock;
-
-                 }
+            } 
 
         }
         public gameScreen()
@@ -81,7 +86,12 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             PlayerChoice = "none";
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void endturnbutton_Click(object sender, EventArgs e)
+        {
+            timePerRound = 0;
+        }
+
+        public void timer1_Tick(object sender, EventArgs e)
         {
             timePerRound--;
             timer.Text = "Timer:  " + Convert.ToString(timePerRound);
@@ -109,61 +119,72 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                     default:
                         break;
                 }
-                if (rounds > -1)
-                {
-                    checkGame();
-                }
-               
-
-                 void checkGame()
+                if (rounds > 0)
                 {
                     Boxer Player = new Boxer();
                     Boxer Enemy = new Boxer();
+
+                    Player.HP = 1000;
+                    Enemy.HP = 1000;
+                    Player.PunchDamage = 83;
+                    Enemy.PunchDamage = 83;
+
                     if (PlayerChoice == "punch" && command == "counter")
                     {
-                        MessageBox.Show("AI Win");
                         Enemy.Counter(Player);
-                        Console.WriteLine(Player.HP);
+                        MessageBox.Show("AI Win, Player HP: " + Player.HP.ToString());
                         rounds--;
-                        Console.WriteLine(Player.HP);
                         nextRound();
+                        label1.Text = Player.HP.ToString();
+                        label2.Text = Enemy.HP.ToString();
                     }
                     else if (PlayerChoice == "counter" && command == "punch")
                     {
-                        MessageBox.Show("Player Wins");
                         Player.Counter(Enemy);
+                        MessageBox.Show("Player Wins, AI HP: " + Enemy.HP.ToString());
                         rounds--;
                         nextRound();
+                        label1.Text = Player.HP.ToString();
+                        label2.Text = Enemy.HP.ToString();
                     }
                     else if (PlayerChoice == "counter" && command == "block")
                     {
-                        MessageBox.Show("Mitigated Damage for AI");
                         Player.CounterBlck(Enemy);
+                        MessageBox.Show("Mitigated Damage for AI, AI HP: " + Enemy.HP.ToString());
                         rounds--;
                         nextRound();
+                        label1.Text = Player.HP.ToString();
+                        label2.Text = Enemy.HP.ToString();
                     }
                     else if (PlayerChoice == "block" && command == "counter")
                     {
-                        MessageBox.Show("Mitigated damage for player");
                         Enemy.CounterBlck(Player);
+                        MessageBox.Show("Mitigated damage for player, Player HP: " + Player.HP.ToString());
                         rounds--;
                         nextRound();
+                        label1.Text = Player.HP.ToString();
+                        label2.Text = Enemy.HP.ToString();
                     }
                     else if (PlayerChoice == "punch" && command == "block")
                     {
-                        MessageBox.Show("Mitigated Damage for AI");
                         Player.Punch(Enemy);
                         Enemy.Mitigate(Enemy);
+                        MessageBox.Show("Mitigated Damage for AI, AI HP: " + Enemy.HP.ToString());
                         rounds--;
                         nextRound();
+                        label1.Text = Player.HP.ToString();
+                        label2.Text = Enemy.HP.ToString();
                     }
                     else if (PlayerChoice == "punch" && command == "punch")
                     {
-                        MessageBox.Show("Equal damage to players");
+
                         Player.Punch(Enemy);
                         Enemy.Punch(Player);
+                        MessageBox.Show("Equal damage to players, AI HP: " + Enemy.HP.ToString() + "  Player HP: " + Player.HP.ToString()); 
                         rounds--;
                         nextRound();
+                        label1.Text = Player.HP.ToString();
+                        label2.Text = Enemy.HP.ToString();
                     }
                     else if (PlayerChoice == "counter" && command == "counter")
                     {
@@ -175,6 +196,8 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                             Player.Counter(Enemy);
                             rounds--;
                             nextRound();
+                            label1.Text = Player.HP.ToString();
+                            label2.Text = Enemy.HP.ToString();
                         }
                         else if (randomNumber < 50)
                         {
@@ -182,6 +205,8 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                             Enemy.Counter(Player);
                             rounds--;
                             nextRound();
+                            label1.Text = Player.HP.ToString();
+                            label2.Text = Enemy.HP.ToString();
                         }
                     }
                     else if (PlayerChoice == "block" && command == "punch")
@@ -191,13 +216,16 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
                         Player.Mitigate(Player);
                         rounds--;
                         nextRound();
+                        label1.Text = Player.HP.ToString();
+                        label2.Text = Enemy.HP.ToString();
                     }
                     else if (PlayerChoice == "block" && command == "block")
                     {
                         MessageBox.Show("No Damage for both players");
-
                         rounds--;
                         nextRound();
+                        label1.Text = Player.HP.ToString();
+                        label2.Text = Enemy.HP.ToString();
                     }
                     else if (rounds == 0 && Player.HP > Enemy.HP)
                     {
@@ -250,10 +278,7 @@ namespace FOTIS1B_Cabanero_Sumalabe_FinalMP
             pictureBox1.Image = Properties.Resources.Block;
         }
 
-        private void endturnbutton_Click(object sender, EventArgs e)
-        {
-            timePerRound = 0;
-        }
+        
 
         private void quitgamebutton_Click(object sender, EventArgs e)
         {
